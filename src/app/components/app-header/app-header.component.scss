@@ -1,0 +1,25 @@
+.app-header {
+    background: #fff;
+    border-bottom: 1px solid #c1cedb;
+    padding: 15px 0;
+    text-align: center;
+
+    .wrapper {
+        max-width: 800px;
+        width: 96%;
+        margin: 0 auto;
+        position: relative;
+
+        h1 {
+            font-size: 36px;
+            font-weight: 600;
+            color: #424242;
+        }
+
+        .description {
+            color: #c2185b;
+            opacity: 0.6;
+            font-style: italic;
+        }
+    }
+}
