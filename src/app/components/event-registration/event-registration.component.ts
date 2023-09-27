@@ -6,6 +6,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 
+import { UsersService } from 'src/app/shared/services/users.service';
 
 @Component({
   selector: 'event-registration',
@@ -18,8 +19,14 @@ export class EventRegistrationComponent {
   registrationForm!: FormGroup;
 
   private _fb = inject(FormBuilder);
+  private _usersService = inject(UsersService);
 
   ngOnInit() {
+    this._usersService.initUsers();
+    this.initForm();
+  }
+
+  initForm() {
     this.registrationForm = this._fb.group({
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
@@ -30,8 +37,11 @@ export class EventRegistrationComponent {
   }
 
   submitRegistrationForm() {
-    if (this.registrationForm.valid) {
-      console.log(this.registrationForm.value);
+    if (!this.registrationForm.valid) {
+      return;
     }
+
+    this._usersService.addUserToUsersCollection(this.registrationForm.value);
+    this.registrationForm.reset();
   }
 }
