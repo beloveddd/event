@@ -1,33 +1,36 @@
-<form [formGroup]="registrationForm" (ngSubmit)="submitRegistrationForm()">
-    <div>
-      <label for="name">Name</label>
-      <input type="text" id="name" formControlName="name" required>
-    </div>
+<form [formGroup]="registrationForm" (ngSubmit)="submitRegistrationForm()" class="registration-form">
+    <mat-form-field class="example-full-width">
+      <mat-label>Name</mat-label>
+      <input matInput placeholder="Your name" formControlName="name">
+    </mat-form-field>
     
-    <div>
-      <label for="email">E-mail</label>
-      <input type="email" id="email" formControlName="email" required>
-    </div>
+    <mat-form-field class="example-full-width">
+      <mat-label>E-mail</mat-label>
+      <input matInput placeholder="Your email" formControlName="email">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Telephone</mat-label>
+      <input matInput placeholder="Your telephone" formControlName="phone">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Registration type</mat-label>
+      <mat-select formControlName="registrationType"  placeholder="Choose registration type">
+        <mat-option value="standart">Standart</mat-option>
+        <mat-option value="premium">Premium</mat-option>
+        <mat-option value="vip">VIP</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Choose a date</mat-label>
+      <input matInput [matDatepicker]="picker">
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
     
-    <div>
-      <label for="phone">Telephone</label>
-      <input type="tel" id="phone" formControlName="phone">
-    </div>
-    
-    <div>
-      <label for="registrationType">Registration type</label>
-      <select id="registrationType" formControlName="registrationType" required>
-        <option value="Standard">Standart</option>
-        <option value="Premium">Premium</option>
-        <option value="VIP">VIP</option>
-      </select>
-    </div>
-    
-    <div>
-      <label for="date">Date</label>
-      <input type="date" id="date" formControlName="date" required>
-    </div>
-    
-    <button type="submit" [disabled]="registrationForm.invalid">Submit</button>
+    <button type="submit" mat-raised-button color="primary">Submit</button>
   </form>
   
