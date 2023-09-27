@@ -5,14 +5,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { provideRouter } from '@angular/router';
 
 import { routes } from './app/app-routing.module';
+import { provideNoopAnimations } from '@angular/platform-browser/animations';
 
 
 bootstrapApplication(AppComponent, {
   providers: [
-    importProvidersFrom(
-			BrowserModule,
-			HttpClientModule,
-    ),
+    importProvidersFrom(BrowserModule, HttpClientModule),
     provideRouter(routes),
-  ]
+    provideNoopAnimations()
+]
 });
