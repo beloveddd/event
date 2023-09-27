@@ -1,0 +1,33 @@
+<form [formGroup]="registrationForm" (ngSubmit)="submitRegistrationForm()">
+    <div>
+      <label for="name">Name</label>
+      <input type="text" id="name" formControlName="name" required>
+    </div>
+    
+    <div>
+      <label for="email">E-mail</label>
+      <input type="email" id="email" formControlName="email" required>
+    </div>
+    
+    <div>
+      <label for="phone">Telephone</label>
+      <input type="tel" id="phone" formControlName="phone">
+    </div>
+    
+    <div>
+      <label for="registrationType">Registration type</label>
+      <select id="registrationType" formControlName="registrationType" required>
+        <option value="Standard">Standart</option>
+        <option value="Premium">Premium</option>
+        <option value="VIP">VIP</option>
+      </select>
+    </div>
+    
+    <div>
+      <label for="date">Date</label>
+      <input type="date" id="date" formControlName="date" required>
+    </div>
+    
+    <button type="submit" [disabled]="registrationForm.invalid">Submit</button>
+  </form>
+  
