@@ -1,4 +1,9 @@
-.registration-form {
-    display: flex;
-    flex-direction: column;
+.form-card {
+    width: 50vw;
+    margin: 0 auto;
+
+    &__registration {
+        display: flex;
+        flex-direction: column;
+    }
 }

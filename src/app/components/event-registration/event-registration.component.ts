@@ -5,6 +5,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
 
 import { UsersService } from 'src/app/shared/services/users.service';
 
@@ -13,7 +15,17 @@ import { UsersService } from 'src/app/shared/services/users.service';
   standalone: true,
   templateUrl: './event-registration.component.html',
   styleUrls: ['./event-registration.component.scss'],
-  imports: [ ReactiveFormsModule, FormsModule, MatFormFieldModule, MatInputModule, MatSelectModule, MatDatepickerModule, MatNativeDateModule ],
+  imports: [ 
+    ReactiveFormsModule, 
+    FormsModule, 
+    MatFormFieldModule, 
+    MatInputModule, 
+    MatSelectModule, 
+    MatDatepickerModule, 
+    MatNativeDateModule, 
+    MatCardModule,
+    MatButtonModule
+  ],
 })
 export class EventRegistrationComponent {
   registrationForm!: FormGroup;
