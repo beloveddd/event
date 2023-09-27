@@ -5,16 +5,28 @@
       <mat-form-field class="example-full-width">
         <mat-label>Name</mat-label>
         <input matInput placeholder="Your name" formControlName="name">
+        <mat-error *ngIf="registrationForm.get('name')?.errors?.['required'] && registrationForm.get('name')?.touched && registrationForm.get('name')?.dirty">
+          Name is required
+        </mat-error>
       </mat-form-field>
-      
+
       <mat-form-field class="example-full-width">
         <mat-label>E-mail</mat-label>
         <input matInput placeholder="Your email" formControlName="email">
+        <mat-error *ngIf="registrationForm.get('email')?.errors?.['required'] && registrationForm.get('email')?.touched && registrationForm.get('email')?.dirty">
+          Email is required
+        </mat-error>
+        <mat-error *ngIf="registrationForm.get('email')?.errors?.['email'] && registrationForm.get('email')?.touched && registrationForm.get('email')?.dirty">
+          Wrong format of email
+        </mat-error>
       </mat-form-field>
   
       <mat-form-field class="example-full-width">
         <mat-label>Telephone</mat-label>
         <input matInput placeholder="Your telephone" formControlName="phone">
+        <mat-error *ngIf="registrationForm.get('phone')?.errors?.['pattern'] && registrationForm.get('phone')?.touched && registrationForm.get('phone')?.dirty">
+          Wrong format of phone number
+        </mat-error>
       </mat-form-field>
   
       <mat-form-field>

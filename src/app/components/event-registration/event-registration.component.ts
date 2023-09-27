@@ -1,4 +1,5 @@
 import { Component, inject } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatInputModule}  from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -16,6 +17,7 @@ import { UsersService } from 'src/app/shared/services/users.service';
   templateUrl: './event-registration.component.html',
   styleUrls: ['./event-registration.component.scss'],
   imports: [ 
+    CommonModule,
     ReactiveFormsModule, 
     FormsModule, 
     MatFormFieldModule, 
@@ -42,7 +44,7 @@ export class EventRegistrationComponent {
     this.registrationForm = this._fb.group({
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      phone: [''],
+      phone: ['', Validators.pattern(/^[\+]?[(]?\d{3}[)]?[-\s.]?\d{3}[-\s.]?\d{4,6}$/)],
       registrationType: ['', Validators.required],
       date: ['', Validators.required]
     });
