@@ -34,6 +34,7 @@ export class EventRegistrationComponent {
   @ViewChild('formDirective') formDirective!: FormGroupDirective;
 
   registrationForm!: FormGroup;
+  minDate!: Date;
 
   private _fb = inject(FormBuilder);
   private _usersService = inject(UsersService);
@@ -51,6 +52,8 @@ export class EventRegistrationComponent {
       registrationType: ['', Validators.required],
       date: ['', Validators.required]
     });
+
+    this.minDate = new Date();
   }
 
   submitRegistrationForm() {
