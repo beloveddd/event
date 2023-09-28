@@ -1,6 +1,6 @@
-import { Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ViewChild, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, FormGroupDirective, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatInputModule}  from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
@@ -28,8 +28,11 @@ import { UsersService } from 'src/app/shared/services/users.service';
     MatCardModule,
     MatButtonModule
   ],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class EventRegistrationComponent {
+  @ViewChild('formDirective') formDirective!: FormGroupDirective;
+
   registrationForm!: FormGroup;
 
   private _fb = inject(FormBuilder);
@@ -56,6 +59,7 @@ export class EventRegistrationComponent {
     }
 
     this._usersService.addUserToUsersCollection(this.registrationForm.value);
+    this.formDirective.resetForm();
     this.registrationForm.reset();
   }
 }

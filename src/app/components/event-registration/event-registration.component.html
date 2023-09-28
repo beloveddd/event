@@ -1,7 +1,7 @@
 <mat-card class="form-card">
   <mat-card-content>
 
-    <form [formGroup]="registrationForm" (ngSubmit)="submitRegistrationForm()" class="form-card__registration">
+    <form [formGroup]="registrationForm" (ngSubmit)="submitRegistrationForm()" #formDirective="ngForm" class="form-card__registration">
       <mat-form-field class="example-full-width">
         <mat-label>Name</mat-label>
         <input matInput placeholder="Your name" formControlName="name">
