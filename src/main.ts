@@ -4,7 +4,7 @@ import { importProvidersFrom } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { provideRouter } from '@angular/router';
 
-import { routes } from './app/app-routing.module';
+import { routes } from './app/app-routes';
 import { provideNoopAnimations } from '@angular/platform-browser/animations';
 
 

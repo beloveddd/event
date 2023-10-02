@@ -40,7 +40,6 @@ export class EventRegistrationComponent {
   private _usersService = inject(UsersService);
 
   ngOnInit() {
-    this._usersService.initUsers();
     this.initForm();
   }
 

@@ -24,7 +24,6 @@ export class AttendeeListComponent {
   private _liveAnnouncer = inject(LiveAnnouncer);
 
   ngOnInit() {
-    this._usersService.initUsers();
     this.users = new MatTableDataSource(this._usersService.users);
   }
 
